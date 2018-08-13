@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TechSkills {
 
@@ -39,14 +40,22 @@ public class TechSkills {
 
     @Then("I should see more tech skills")
     public void assertTechSkillsMoreInformationIsShown() {
-        List<WebElement> items = state.getDriver().findElements(By.cssSelector("skilltechlist"));
-        assertEquals(0, items.size());
+
+        /* Count and compare the number of expandable and shrunk list items */
+        List<WebElement> expandableItems = state.getDriver().findElements(By.cssSelector(".skilllist-tech li.expandable"));
+        List<WebElement> shrunkItems = state.getDriver().findElements(By.cssSelector(".skilllist-tech li.shrunk"));
+
+        assertTrue(shrunkItems.size() < expandableItems.size());
     }
 
     @Then("I should see less tech skills")
     public void assertTechSkillsLessInformationIsShown() {
-        List<WebElement> items = state.getDriver().findElements(By.cssSelector("skilltechlist"));
-        assertEquals(0, items.size());
+
+        /* Count and compare the number of expandable and shrunk list items */
+        List<WebElement> expandableItems = state.getDriver().findElements(By.cssSelector(".skilllist-tech li.expandable"));
+        List<WebElement> shrunkItems = state.getDriver().findElements(By.cssSelector(".skilllist-tech li.shrunk"));
+
+        assertTrue(shrunkItems.size() > expandableItems.size());
     }
 
 }
