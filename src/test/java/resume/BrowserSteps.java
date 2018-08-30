@@ -45,7 +45,6 @@ public class BrowserSteps {
 
     @Given("^I am on the homepage$")
     public void navigateToHomepage() {
-        WebDriver driver = state.getDriver();
-        driver.get("http://localhost:8080");
+        state.getDriver().get(state.getWebsiteURL().toString());
     }
 }
