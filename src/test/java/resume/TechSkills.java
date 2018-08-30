@@ -20,7 +20,7 @@ public class TechSkills {
     }
 
     public void clickOnTechSkillsMoreLink() {
-        state.getDriver().findElement(By.cssSelector("#skills-more")).click();
+        state.getDriver().findElement(By.id("techskills-more")).click();
     }
 
     @Given("^I have clicked on the tech skills more link$")
