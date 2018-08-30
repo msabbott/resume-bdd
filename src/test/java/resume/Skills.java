@@ -20,7 +20,7 @@ public class Skills {
     }
 
     public void clickOnSkillsMoreLink() {
-        Utils.scrollToElement(state.getDriver(), By.id("skills-more")).click();
+        state.getDriver().findElement(By.id("skills-more")).click();
     }
 
     @Given("^I have clicked on the skills more link$")
